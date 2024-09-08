@@ -3,16 +3,14 @@ import { CartContext } from '../../context/CartContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faPlus} from '@fortawesome/free-solid-svg-icons'
 
-const Aumenta = (pizza) => {
+const Aumenta = ({pizza}) => {
   const {cart, setCart}=useContext(CartContext)
-  const [count,setCount]=useState(parseInt(pizza.cantidad))
-  
+
   function ModificacionCant(id){
-    setCount(count+1)
 
     const newAdd=cart.map(item =>{
       if(item.id===id){
-        return {...item, cantidad:count}
+        return {...item, cantidad:pizza.cantidad+1}
       }
       return item
     })

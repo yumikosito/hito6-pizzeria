@@ -9,30 +9,14 @@ import Aumenta from '../Modificadores/Aumenta'
 
 const PizzaTotal = (pizza) => {
   const precioFormat= pizza.price
-  const {cart, setCart}=useContext(CartContext)
   const count=pizza.cantidad
 
-  
   const plusTotal=precioFormat*count
   const totalFormat= new Intl.NumberFormat('es-CL', {currency: 'CLP', style: 'currency'}).format(plusTotal)
 
   function pizzaHandleSubmit(e) {
     e.preventDefault();
   }
-
-  // if (count===0){
-  //   const addCart=(id)=> {
-  //     const newAdd=cart.map(cartN =>{
-  //       if(cartN.id===id){
-  //         return {...cartN, add:!cartN.add}
-  //       }
-  //       return cartN
-  //     })
-  //     setCart(newAdd)
-  // }
-  // console.log(cart);
-  // ,addCart(pizza.id)
-  
 
   return (
     <div>
@@ -50,9 +34,9 @@ const PizzaTotal = (pizza) => {
             <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
               {/* <button className="btn btn-link px-2" onClick={()=> pizza.modificacionAct(pizza=pizza), setCount(count-1)}> <FontAwesomeIcon icon={faMinus} />
               </button> */}
-              <Disminuye pizza={pizza} id={pizza.id} cantidad={pizza.cantidad}/>
+              <Disminuye pizza={pizza}/>
               <input className="form-control" min={0} type="text" placeholder="Default input" value={count} onChange={pizzaHandleSubmit}></input>
-              <Aumenta pizza={pizza} id={pizza.id} cantidad={pizza.cantidad}/>
+              <Aumenta pizza={pizza}/>
               {/* <button className="btn btn-link px-2" onClick={()=> pizza.modificacionAct(pizza=pizza), setCount(count+1)}> <FontAwesomeIcon icon={faPlus} />
               </button> */}
             </div>

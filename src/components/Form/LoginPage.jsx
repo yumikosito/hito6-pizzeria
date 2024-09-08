@@ -18,7 +18,6 @@ const LoginPage = (base) => {
   const handleSubmit = (e)=> {
     e.preventDefault()
     const search=base.BD.find (mail => mail.email===email)
-    console.log(search.password);
     
     if (password===search.password && password.length>=6){
       alert("Autentificacion correcta")

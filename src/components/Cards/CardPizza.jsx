@@ -16,7 +16,7 @@ const CardPizza = (pizza) => {
   
     const newAdd=cart.map(cartN =>{
       if(cartN.id===id){
-        return {...cartN,cantidad:count, add:!cartN.add}
+        return {...cartN,cantidad:count, add:true}
       }
       return cartN
     })

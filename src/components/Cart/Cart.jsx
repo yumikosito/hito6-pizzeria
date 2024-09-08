@@ -5,35 +5,8 @@ import {faAngleDown} from '@fortawesome/free-solid-svg-icons'
 import { CartContext } from '../../context/CartContext'
 
 const Cart = () => {
-  const {cart,setCart,totalCLP}=useContext(CartContext)
-
-
-  // function modificacion(pizza, nada, count){
-  //   let coincidencia=cart.findIndex(item=> item.id===pizza.id)
-  //   let newPizza= {id:pizza.id,desc:pizza.desc, cantidad:1, ingredients:pizza.ingredients, img:pizza.img, price: pizza.price}
-
-  //   if(coincidencia>=0 ){
-  //     setCart(cart.map(t => {
-  //       if (t.id === pizza.id) {
-  //         return {id:pizza.id, desc:pizza.desc, cantidad:count, ingredients:pizza.ingredients, img:pizza.img, price: pizza.price};
-  //       } else {
-  //         return t;
-  //       }
-  //     }))
-
-  //     if (count===0){
-  //       cart.splice(coincidencia,1)
-  //       return
-  //     }
-
-  //   } else{
-  //     setCart([...cart,newPizza])
-  //   }
-  // modificacionAct={modificacion}
-  // }
-
+  const {cart,totalCLP}=useContext(CartContext)
   const cartTrue= cart.filter(item=>(item.add===true))
-
 
   return (
     <div className='vw-100 py-5'>
@@ -48,7 +21,7 @@ const Cart = () => {
               </div>
             </div>
             {cart && cartTrue.map(item=>(
-              <PizzaTotal key={item.id} name={item.name} price={item.price} ingredients={item.ingredients} img={item.img}  id={item.id} cantidad={item.cantidad}/>
+              <PizzaTotal key={item.id} name={item.name} price={item.price} ingredients={item.ingredients} img={item.img}  id={item.id} cantidad={item.cantidad} add={item.add}/>
             ))}
             <div className="card w-100 mb-4">
               <div className="card-body p-3 d-flex flex-row">

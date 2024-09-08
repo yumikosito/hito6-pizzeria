@@ -6,17 +6,7 @@ import { CartContext } from '../../context/CartContext'
 
 export default function Home() {
   const {cart}=useContext(CartContext)
-  // const [pizza,setPizza]=useState([])
-  // const getData= async() =>{
-  //     let res= await fetch ("http://localhost:5000/api/pizzas")
-  //     let data= await res.json()
-  //     setPizza(data)
-  // }
-  
-  // useEffect (()=>{
-  //   getData()
-  // },[])
-  
+
   return (
     <div className='vw-100 pt-5'>
       <Header/>
